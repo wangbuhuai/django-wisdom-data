@@ -7,7 +7,6 @@ from .search import search
 from django.http.response import FileResponse
 from django.shortcuts import render
 from os import mkdir
-from rest_framework.decorators import api_view
 from shutil import make_archive, rmtree
 
 
@@ -15,7 +14,6 @@ def home(request):
     return render(request, "wisdom_google_trends_data_collector/home.html")
 
 
-@api_view(["POST"])
 def submit(request):
     if request.method == "POST":
         if request.path.replace('/', '') == "submit":
